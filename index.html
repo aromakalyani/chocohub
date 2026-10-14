@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma Cocoa | Frozen Elsa Theme - Homemade Organic Chocolate & Magical Pastries</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Cute Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Pacifico for cute headings, Poppins for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        frozen: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            ice: '#e0f7fc',
+                            crystal: '#b9f2ff',
+                            frost: '#dff6ff',
+                            blue: '#4a90e2',
+                            deep: '#1e3a8a',
+                            silver: '#cbd5e1'
+                        }
+                    },
+                    fontFamily: {
+                        pacifico: ['Pacifico', 'cursive'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f9ff;
+            color: #0c4a6e;
+            overflow-x: hidden;
+        }
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        @keyframes snowflake {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0.2; }
+        }
+        .snowflake {
+            position: fixed;
+            top: -20px;
+            color: #38bdf8;
+            user-select: none;
+            pointer-events: none;
+            z-index: 40;
+            animation: snowflake linear infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        .animate-float {
+            animation: float 3.5s ease-in-out infinite;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(186, 230, 253, 0.8);
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0f2fe;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-frozen-50 text-frozen-900 relative selection:bg-frozen-200 selection:text-frozen-900">
+
+    <!-- Falling Snowflakes Background Effect -->
+    <div class="snowflake" style="left: 5%; font-size: 14px; animation-duration: 8s; animation-delay: 0s;">❄</div>
+    <div class="snowflake" style="left: 15%; font-size: 22px; animation-duration: 12s; animation-delay: 2s;">❅</div>
+    <div class="snowflake" style="left: 30%; font-size: 12px; animation-duration: 7s; animation-delay: 1s;">❄</div>
+    <div class="snowflake" style="left: 45%; font-size: 20px; animation-duration: 10s; animation-delay: 3s;">❄</div>
+    <div class="snowflake" style="left: 60%; font-size: 16px; animation-duration: 9s; animation-delay: 1.5s;">❅</div>
+    <div class="snowflake" style="left: 75%; font-size: 24px; animation-duration: 14s; animation-delay: 4s;">❄</div>
+    <div class="snowflake" style="left: 90%; font-size: 18px; animation-duration: 11s; animation-delay: 2.5s;">❅</div>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-frozen-200 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-tr from-frozen-400 to-frozen-600 rounded-full flex items-center justify-center text-white shadow-md shadow-frozen-200 animate-float">
+                        <i class="fa-solid fa-snowflake text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-pacifico text-2xl text-frozen-600 tracking-wide">Aroma Cocoa</span>
+                        <p class="text-[10px] text-frozen-700 font-semibold tracking-widest uppercase flex items-center gap-1">
+                            <span>❄️ Elsa's Ice Castle</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-frozen-900 text-sm lg:text-base">
+                    <a href="#hero" class="hover:text-frozen-500 transition-colors">Home</a>
+                    <a href="#story" class="hover:text-frozen-500 transition-colors">Ice Kingdom Story</a>
+                    <button onclick="switchView('products')" id="nav-btn-products" class="hover:text-frozen-500 transition-colors text-left font-medium">Products 🛍️</button>
+                    <a href="#elsa-crew" class="hover:text-frozen-500 transition-colors">Elsa & Friends 👑</a>
+                    <a href="#magic" class="hover:text-frozen-500 transition-colors">Crystal Magic</a>
+                </div>
+
+                <!-- Right Action Buttons (Bag / Cart Counter) -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleCartDrawer()" class="relative bg-frozen-100 hover:bg-frozen-200 text-frozen-700 px-4 py-2.5 rounded-full font-semibold transition flex items-center space-x-2 border border-frozen-300 shadow-sm">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="hidden sm:inline">Bag</span>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-frozen-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                    </button>
+                    <!-- Mobile Menu Toggle Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-frozen-600 p-2 focus:outline-none">
+                        <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-frozen-200 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#hero" onclick="toggleMobileMenu(); switchView('home');" class="block text-frozen-900 font-medium hover:text-frozen-500">Home</a>
+            <a href="#story" onclick="toggleMobileMenu()" class="block text-frozen-900 font-medium hover:text-frozen-500">Ice Kingdom Story</a>
+            <button onclick="toggleMobileMenu(); switchView('products');" class="block text-frozen-900 font-medium hover:text-frozen-500 text-left w-full">Products 🛍️</button>
+            <a href="#elsa-crew" onclick="toggleMobileMenu()" class="block text-frozen-900 font-medium hover:text-frozen-500">Elsa & Friends 👑</a>
+            <a href="#magic" onclick="toggleMobileMenu()" class="block text-frozen-900 font-medium hover:text-frozen-500">Crystal Magic</a>
+        </div>
+    </nav>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl p-6 flex flex-col justify-between border-l-2 border-frozen-200">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between border-b border-frozen-200 pb-4">
+                        <h2 class="text-xl font-bold text-frozen-900 flex items-center gap-2">
+                            <i class="fa-solid fa-bag-shopping text-frozen-500"></i> Your Ice Crystal Bag
+                        </h2>
+                        <button onclick="toggleCartDrawer()" class="text-frozen-600 text-lg hover:text-frozen-800">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div id="cart-items" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                        <p class="text-xs text-frozen-700 text-center py-8">Your bag is currently empty! Add frozen treats from Elsa's Castle. ❄️🍫</p>
+                    </div>
+                </div>
+                <div class="border-t border-frozen-200 pt-4 space-y-4">
+                    <div class="flex justify-between items-center text-base font-bold text-frozen-900">
+                        <span>Total:</span>
+                        <span id="cart-total" class="text-frozen-600 text-xl">₹0</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3.5 rounded-2xl shadow-lg hover:scale-[1.02] transition text-sm">
+                        Proceed to Frozen Checkout 👑❄️
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HOME VIEW (Elsa Frozen Theme) -->
+    <div id="view-home">
+        <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-frozen-100 via-frozen-50 to-frozen-50">
+            <!-- Floating Sparkle & Crystal Decors -->
+            <div class="absolute top-24 left-12 text-frozen-400 opacity-70 animate-sparkle text-3xl pointer-events-none">❄️</div>
+            <div class="absolute top-44 right-20 text-frozen-500 opacity-75 animate-sparkle text-4xl pointer-events-none" style="animation-delay: 1s;">✨</div>
+            <div class="absolute bottom-12 left-1/3 text-frozen-300 opacity-80 animate-sparkle text-2xl pointer-events-none" style="animation-delay: 0.5s;">💎</div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Text Column -->
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-frozen-300 shadow-sm animate-float">
+                            <span class="text-frozen-600 font-bold text-sm">❄️ Frozen Ice Palace & Organic Cocoa</span>
+                            <span class="text-xs bg-frozen-500 text-white px-2.5 py-0.5 rounded-full font-semibold">Magical</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-frozen-900 tracking-tight leading-tight">
+                            Elsa's Frosty Wonderland & <span class="font-pacifico text-transparent bg-clip-text bg-gradient-to-r from-frozen-600 to-frozen-400">Sweet Palace!</span>
+                        </h1>
+                        
+                        <p class="text-base sm:text-lg text-frozen-700 max-w-2xl mx-auto lg:mx-0">
+                            Step into Queen Elsa's ice crystal ice palace where sparkling frozen treats, blue-velvet chocolate drinks, frosted doughnuts, and organic cocoa meet enchanting winter magic! ❄️🍫
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <!-- Products Button to switch view -->
+                            <button onclick="switchView('products')" class="w-full sm:w-auto bg-gradient-to-r from-frozen-400 to-frozen-600 text-white text-center px-8 py-4 rounded-full font-bold shadow-xl shadow-frozen-200 hover:scale-105 transition transform flex items-center justify-center space-x-3">
+                                <i class="fa-solid fa-snowflake"></i>
+                                <span>Frozen Products Page 🛍️</span>
+                            </button>
+                            <a href="#elsa-crew" class="w-full sm:w-auto bg-white text-frozen-700 text-center px-8 py-4 rounded-full font-bold border-2 border-frozen-300 hover:bg-frozen-50 transition flex items-center justify-center space-x-2 shadow-sm">
+                                <i class="fa-solid fa-crown text-frozen-500"></i>
+                                <span>Meet Queen Elsa & Friends</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust Stats -->
+                        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-frozen-200/80 max-w-lg mx-auto lg:mx-0">
+                            <div class="text-center lg:text-left">
+                                <h3 class="font-bold text-2xl text-frozen-600">100%</h3>
+                                <p class="text-xs text-frozen-700 font-medium">Glacial Organic Cacao</p>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <h3 class="font-bold text-2xl text-frozen-600">24+</h3>
+                                <p class="text-xs text-frozen-700 font-medium">Ice Crystal Desserts</p>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <h3 class="font-bold text-2xl text-frozen-600">25,000+</h3>
+                                <p class="text-xs text-frozen-700 font-medium">Frozen Fans</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Visual Card -->
+                    <div class="lg:col-span-5 relative flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <div class="absolute -inset-4 bg-gradient-to-r from-frozen-200 to-frozen-400 rounded-3xl blur-xl opacity-40 animate-pulse"></div>
+                            
+                            <div class="relative glass-card p-6 rounded-3xl shadow-2xl space-y-4">
+                                <div class="relative rounded-2xl overflow-hidden aspect-square bg-frozen-200 shadow-inner group">
+                                    <img src="https://images.unsplash.com/photo-1600850239121-5079a4951475?auto=format&fit=crop&w=600&q=80" alt="Crystal Melting Chocolate Bowl" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x600/e0f2fe/0c4a6e?text=Frozen+Melting+Chocolate'">
+                                    <div class="absolute top-3 right-3 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-frozen-600 shadow">
+                                        👑 Elsa's Ice Special
+                                    </div>
+                                    <div class="absolute bottom-3 left-3 bg-frozen-900/85 backdrop-blur px-3.5 py-1.5 rounded-xl text-white text-xs font-semibold">
+                                        Guarded by Snow Giants & Ice Crystals!
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between pt-2">
+                                    <div>
+                                        <h4 class="font-bold text-frozen-900 text-lg">Glacial Melting Chocolate Bowl</h4>
+                                        <p class="text-xs text-frozen-700">Blessed by Queen Elsa's ice magic</p>
+                                    </div>
+                                    <span class="font-extrabold text-frozen-600 text-xl">₹499</span>
+                                </div>
+
+                                <button onclick="addToCart('Glacial Melting Chocolate Bowl', 499, 'https://images.unsplash.com/photo-1600850239121-5079a4951475?auto=format&fit=crop&w=150&q=80')" class="w-full bg-frozen-500 hover:bg-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-sm">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span>Add to Bag • ₹499</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Elsa & Frozen Friends Showcase Section -->
+        <section id="elsa-crew" class="py-20 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-frozen-600 font-bold uppercase tracking-widest text-sm bg-frozen-100 px-4 py-1.5 rounded-full border border-frozen-300">The Ice Palace Guardians</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-frozen-900">Meet Queen Elsa & Her Frozen Friends ❄️👑</h2>
+                    <p class="text-frozen-700 text-base sm:text-lg">
+                        Standing proudly next to every dessert station in Elsa's ice palace, magical friends ensure every chocolate drink, frosted doughnut, and glacial pastry stays perfectly chilled and sparkly!
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Elsa Character 1 -->
+                    <div class="bg-frozen-50 p-6 rounded-3xl border-2 border-frozen-200 shadow-sm hover:shadow-md transition space-y-4 text-center">
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Queen Elsa Ice Pastries" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/e0f2fe/0c4a6e?text=Queen+Elsa+Pastry+Guard'">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Ice Queen Protector</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-frozen-900">Queen Elsa of Arendelle</h3>
+                        <p class="text-frozen-700 text-sm">
+                            Infusing ice magic into our glacial melting chocolate bowls and dusting every dessert with shimmering snowflake glitter.
+                        </p>
+                    </div>
+
+                    <!-- Elsa Character 2 -->
+                    <div class="bg-frozen-50 p-6 rounded-3xl border-2 border-frozen-200 shadow-sm hover:shadow-md transition space-y-4 text-center">
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80" alt="Princess Anna Sweet Guard" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/e0f2fe/0c4a6e?text=Princess+Anna+Guard'">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Warm Hugs & Cocoa Warden</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-frozen-900">Princess Anna</h3>
+                        <p class="text-frozen-700 text-sm">
+                            Guarding the Royal Hot Chocolate Elixir and warm glazed doughnuts with boundless enthusiasm and chocolate love.
+                        </p>
+                    </div>
+
+                    <!-- Elsa Character 3 -->
+                    <div class="bg-frozen-50 p-6 rounded-3xl border-2 border-frozen-200 shadow-sm hover:shadow-md transition space-y-4 text-center">
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80" alt="Olaf Frosty Companion" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/e0f2fe/0c4a6e?text=Olaf+Companion'">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Warm Hugs & Marshmallow Expert</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-frozen-900">Olaf the Snowman</h3>
+                        <p class="text-frozen-700 text-sm">
+                            Ensuring every hot chocolate cup is piled high with marshmallow fluff and crystal sprinkles without melting away!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="py-20 bg-frozen-50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-frozen-600 font-bold uppercase tracking-widest text-sm bg-white px-4 py-1.5 rounded-full border border-frozen-300">Elsa's Ice Kingdom</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-frozen-900">Where Crystal Ice Meets Artisanal Pastries & Drinks</h2>
+                    <p class="text-frozen-700 text-base sm:text-lg">
+                        Aroma Cocoa & Elsa's Ice Palace bring you a wonderland of rich organic desserts, velvety chocolate drinks, frosted doughnuts, and glacial macarons prepared in frozen harmony.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Story Card 1 -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-frozen-200 shadow-sm hover:shadow-md transition space-y-4 text-center">
+                        <div class="w-16 h-16 bg-frozen-200 text-frozen-700 rounded-2xl mx-auto flex items-center justify-center text-2xl shadow-inner">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-frozen-900">Frozen Magic Recipes</h3>
+                        <p class="text-frozen-700 text-sm">
+                            Curated in collaboration with glacial baking studios, combining timeless French pastry artistry with ice crystal elegance.
+                        </p>
+                    </div>
+
+                    <!-- Story Card 2 -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-frozen-200 shadow-sm hover:shadow-md transition space-y-4 text-center">
+                        <div class="w-16 h-16 bg-frozen-200 text-frozen-700 rounded-2xl mx-auto flex items-center justify-center text-2xl shadow-inner">
+                            <i class="fa-solid fa-house-chimney-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-frozen-900">Fresh Daily Ice Palace Baking</h3>
+                        <p class="text-frozen-700 text-sm">
+                            Our pastry chefs whip mousses, glaze doughnuts, and temper organic chocolates fresh every morning in the ice fortress.
+                        </p>
+                    </div>
+
+                    <!-- Story Card 3 -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-frozen-200 shadow-sm hover:shadow-md transition space-y-4 text-center">
+                        <div class="w-16 h-16 bg-frozen-200 text-frozen-700 rounded-2xl mx-auto flex items-center justify-center text-2xl shadow-inner">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-frozen-900">Crystal Shimmer & Ribbons</h3>
+                        <p class="text-frozen-700 text-sm">
+                            Finished with edible blue crystal flakes, fresh frost drizzles, and silver ribbons to make every dessert feel like a royal coronation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organic Magic Section -->
+        <section id="magic" class="py-20 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <span class="text-frozen-600 font-bold uppercase tracking-widest text-sm bg-frozen-100 px-4 py-1.5 rounded-full border border-frozen-300">Glacial Quality</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-frozen-900">The Secret Behind Our Crystal Ice Magic ✨</h2>
+                        <p class="text-frozen-700 text-base leading-relaxed">
+                            Every chocolate drink, frosted doughnut, macaron shell, and pastry is crafted using sustainably harvested organic cacao beans and pure mountain butter. Recipes are tailored for clean-eating diet preferences without ever sacrificing rich, velvety flavor.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="bg-frozen-50 p-4 rounded-2xl border border-frozen-200">
+                                <h4 class="font-bold text-frozen-900 text-base flex items-center gap-2">
+                                    <i class="fa-solid fa-seedling text-frozen-500"></i>
+                                    <span>70% Cacao</span>
+                                </h4>
+                                <p class="text-xs text-frozen-700 mt-1">Rich single-origin antioxidant-packed beans.</p>
+                            </div>
+                            <div class="bg-frozen-50 p-4 rounded-2xl border border-frozen-200">
+                                <h4 class="font-bold text-frozen-900 text-base flex items-center gap-2">
+                                    <i class="fa-solid fa-heart-pulse text-frozen-500"></i>
+                                    <span>Sugar Free Options</span>
+                                </h4>
+                                <p class="text-xs text-frozen-700 mt-1">Guilt-free indulgence for clean diets.</p>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button onclick="switchView('products')" class="bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold px-8 py-3.5 rounded-full shadow-lg hover:scale-105 transition">
+                                View Frozen Products & Shop Now 🛍️
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="relative rounded-3xl overflow-hidden aspect-[4/3] bg-frozen-200 shadow-2xl border-4 border-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80" alt="Crystal Ice Cocoa Magic" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- DEDICATED PRODUCTS VIEW (Shown when user clicks Products button) -->
+    <div id="view-products" class="hidden pt-32 pb-24 min-h-screen bg-frozen-100/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- Back to Home Button & Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-3xl border-2 border-frozen-200 shadow-sm">
+                <div class="space-y-1">
+                    <span class="text-frozen-600 font-bold uppercase tracking-widest text-xs bg-frozen-100 px-3 py-1 rounded-full">Elsa's Frozen Store</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-frozen-900">Frozen Products & Cookie Reviews Page 🛍️❄️</h2>
+                </div>
+                <button onclick="switchView('home')" class="bg-frozen-500 hover:bg-frozen-600 text-white px-6 py-3 rounded-full font-bold shadow transition flex items-center justify-center space-x-2 text-sm">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Ice Castle Home</span>
+                </button>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                <button onclick="filterProducts('all')" class="filter-btn active-filter bg-frozen-500 text-white px-5 py-2 rounded-full font-semibold text-sm transition shadow-sm">All Frozen Treats</button>
+                <button onclick="filterProducts('doughnuts')" class="filter-btn bg-white text-frozen-700 hover:bg-frozen-200 px-5 py-2 rounded-full font-semibold text-sm transition border border-frozen-300 shadow-sm">🍩 Frosted Doughnuts</button>
+                <button onclick="filterProducts('macarons')" class="filter-btn bg-white text-frozen-700 hover:bg-frozen-200 px-5 py-2 rounded-full font-semibold text-sm transition border border-frozen-300 shadow-sm">❄️ Crystal Macarons</button>
+                <button onclick="filterProducts('drinks')" class="filter-btn bg-white text-frozen-700 hover:bg-frozen-200 px-5 py-2 rounded-full font-semibold text-sm transition border border-frozen-300 shadow-sm">🥤 Glacial Drinks</button>
+                <button onclick="filterProducts('pastries')" class="filter-btn bg-white text-frozen-700 hover:bg-frozen-200 px-5 py-2 rounded-full font-semibold text-sm transition border border-frozen-300 shadow-sm">🥐 Palace Pastries</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Item 1: Glacial Melting Chocolate Bowl -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="pastries">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1548818816-b84742f36d4f?auto=format&fit=crop&w=600&q=80" alt="Glacial Melting Chocolate Bowl" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">👑 Queen Elsa's Pick</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Glacial Melting Chocolate Bowl</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹499</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Warm organic melting chocolate served in an ice crystal bowl with frosted fruit dippers.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">70% Cacao</span>
+                                <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Sugar Free</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Diet Chocolate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Glacial Melting Chocolate Bowl', 499, 'https://images.unsplash.com/photo-1548818816-b84742f36d4f?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹499</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2: Frosty Glazed Doughnuts -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="doughnuts">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80" alt="Frosty Glazed Doughnuts" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">🍩 Crystal Box</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Frosty Glazed Doughnuts (4pcs)</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹599</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Fluffy brioche doughnuts dipped in crystal blue glaze and rich organic cocoa drip.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">70% Cacao</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Diet Chocolate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Frosty Glazed Doughnuts (4pcs)', 599, 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹599</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3: Royal Hot Chocolate Elixir Drink -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="drinks">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="Royal Hot Chocolate Drink" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">🥤 Warm Elixir</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Royal Hot Chocolate Elixir</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹349</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Thick, steaming organic cocoa drink topped with toasted marshmallow fluff and ice crystal sprinkles.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Sugar Free</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Diet Chocolate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Royal Hot Chocolate Elixir', 349, 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹349</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 4: Crystal Sparkle Macaron Box -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="macarons">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=600&q=80" alt="Crystal Sparkle Macarons" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">❄️ Macaron Box</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Crystal Sparkle Macarons (12pcs)</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹1,299</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Delicate French almond macaron shells filled with organic dark cocoa ganache and blueberry curd.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">70% Cacao</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Crystal Sparkle Macarons (12pcs)', 1299, 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹1,299</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 5: Choco-Mint Ice Cold Brew Shake -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="drinks">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80" alt="Choco-Mint Shake" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">🥤 Chilled Shake</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Choco-Mint Ice Cold Brew Shake</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹399</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Blended chilled milk, organic cocoa, refreshing mint essence, and a swirl of whipped frost cream.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">70% Cacao</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Choco-Mint Ice Cold Brew Shake', 399, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹399</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 6: Golden Frost Chocolate Croissant Pastry -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="pastries">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Chocolate Croissant" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">🥐 Palace Pastry</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Golden Frost Chocolate Croissant</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹299</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Flaky, buttery French croissant stuffed with rich organic dark chocolate batons and silver glitter.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">70% Cacao</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Diet Chocolate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Golden Frost Chocolate Croissant', 299, 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹299</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 7: Crystal Blueberry-Cream Doughnut -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="doughnuts">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?auto=format&fit=crop&w=600&q=80" alt="Blueberry Filled Doughnut" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">🍩 Cream Filled</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Crystal Blueberry-Cream Doughnut</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹249</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Soft ring doughnut injected with velvety blueberry custard cream and dusted with silver icing.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Sugar Free</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Crystal Blueberry-Cream Doughnut', 249, 'https://images.unsplash.com/photo-1514517521153-1be72277b32f?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹249</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 8: Ice Diamond Organic Dark Bar -->
+                <div class="product-item glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="pastries">
+                    <div>
+                        <div class="relative aspect-square overflow-hidden bg-frozen-200">
+                            <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80" alt="Ice Diamond Dark Bar" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-frozen-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">🍫 72% Glacial</span>
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-base text-frozen-900">Ice Diamond Organic Dark Bar</h3>
+                                <span class="text-frozen-600 font-extrabold text-base">₹1,099</span>
+                            </div>
+                            <p class="text-xs text-frozen-700">Single-origin organic dark chocolate bar garnished with shimmering edible silver frost dust flakes.</p>
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">70% Cacao</span>
+                                <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Sugar Free</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Diet Chocolate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="addToCart('Ice Diamond Organic Dark Bar', 1099, 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=150&q=80')" class="w-full bg-gradient-to-r from-frozen-400 to-frozen-600 text-white font-bold py-3 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-xs">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Bag • ₹1,099</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dedicated Product Reviews & Cookie Ratings Section -->
+            <div id="product-reviews" class="pt-10 space-y-8">
+                <div class="text-center space-y-3">
+                    <span class="text-frozen-600 font-bold uppercase tracking-widest text-sm bg-white px-4 py-1.5 rounded-full border border-frozen-300">Verified Kingdom Reviews</span>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-frozen-900">Customer Reviews & Cookie Ratings 🍪✨</h3>
+                    <p class="text-frozen-700 text-sm max-w-xl mx-auto">
+                        See how Queen Elsa, Princess Anna, and our frozen fans rate our organic chocolates, drinks, doughnuts, and pastries using our signature cookie scale!
+                    </p>
+                </div>
+
+                <!-- Overall Rating Summary Card -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl max-w-4xl mx-auto">
+                    <div class="space-y-2 text-center md:text-left">
+                        <span class="text-xs uppercase tracking-widest font-bold text-frozen-600 bg-frozen-100 px-3 py-1 rounded-full">Ice Castle Overall Rating</span>
+                        <h4 class="text-3xl font-extrabold text-frozen-900">4.9 / 5.0 Cookie Rating</h4>
+                        <p class="text-xs text-frozen-700">Based on over 4,200 verified reviews across all glacial pastries and drinks.</p>
+                    </div>
+                    <div class="flex text-amber-600 text-2xl space-x-1.5 bg-white p-4 rounded-2xl border border-frozen-200 shadow-inner">
+                        <i class="fa-solid fa-cookie"></i>
+                        <i class="fa-solid fa-cookie"></i>
+                        <i class="fa-solid fa-cookie"></i>
+                        <i class="fa-solid fa-cookie"></i>
+                        <i class="fa-solid fa-cookie"></i>
+                    </div>
+                </div>
+
+                <!-- Review Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    
+                    <!-- Review 1 -->
+                    <div class="glass-card p-6 rounded-3xl space-y-4 shadow-md">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-frozen-300 flex items-center justify-center font-bold text-frozen-900 text-sm">E</div>
+                                <div>
+                                    <h5 class="font-bold text-frozen-900 text-sm">Queen Elsa</h5>
+                                    <span class="text-[10px] text-frozen-600">Ice Palace Resident • Glacial Melting Chocolate Bowl</span>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-600 text-sm space-x-0.5">
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-frozen-700 leading-relaxed">
+                            "The sugar-free & diet chocolate options maintain their rich organic warmth even inside my ice castle. The melting chocolate bowl and hot cocoa elixir are perfection!"
+                        </p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="glass-card p-6 rounded-3xl space-y-4 shadow-md">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-frozen-300 flex items-center justify-center font-bold text-frozen-900 text-sm">A</div>
+                                <div>
+                                    <h5 class="font-bold text-frozen-900 text-sm">Princess Anna</h5>
+                                    <span class="text-[10px] text-frozen-600">Arendelle Royalty • Frosty Glazed Doughnuts</span>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-600 text-sm space-x-0.5">
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie text-frozen-200"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-frozen-700 leading-relaxed">
+                            "Chocolate! The frosted doughnuts and croissant pastries are so buttery and delicious. The cookie ratings capture how wonderful everything tastes."
+                        </p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="glass-card p-6 rounded-3xl space-y-4 shadow-md">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-frozen-300 flex items-center justify-center font-bold text-frozen-900 text-sm">O</div>
+                                <div>
+                                    <h5 class="font-bold text-frozen-900 text-sm">Olaf the Snowman</h5>
+                                    <span class="text-[10px] text-frozen-600">Verified Buyer • Choco-Mint Shake</span>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-600 text-sm space-x-0.5">
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-frozen-700 leading-relaxed">
+                            "I love warm hugs and I love the choco-mint cold brew shake! Plus the marshmallow fluff on the hot chocolate is fantastic. 5 out of 5 cookies!"
+                        </p>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="glass-card p-6 rounded-3xl space-y-4 shadow-md">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-frozen-300 flex items-center justify-center font-bold text-frozen-900 text-sm">K</div>
+                                <div>
+                                    <h5 class="font-bold text-frozen-900 text-sm">Kristoff Bjorgman</h5>
+                                    <span class="text-[10px] text-frozen-600">Mountain Explorer • Crystal Macaron Box</span>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-600 text-sm space-x-0.5">
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie"></i>
+                                <i class="fa-solid fa-cookie text-frozen-200"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-frozen-700 leading-relaxed">
+                            "Sven and I love stopping by for the crystal macarons and dark chocolate bars after hauling ice. Top tier quality treats!"
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-frozen-900 text-frozen-100 py-12 border-t-2 border-frozen-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-3">
+                <div class="w-10 h-10 bg-frozen-500 rounded-full flex items-center justify-center text-white">
+                    <i class="fa-solid fa-snowflake text-lg"></i>
+                </div>
+                <span class="font-pacifico text-2xl text-frozen-300">Aroma Cocoa</span>
+            </div>
+            <p class="text-xs text-frozen-200 max-w-md mx-auto">
+                Homemade Organic Chocolate, Pastries, Drinks, Doughnuts, and Macarons guarded by Queen Elsa and friends in the Ice Castle. ❄️💎
+            </p>
+            <p class="text-[11px] text-frozen-300 pt-4">&copy; 2026 Aroma Cocoa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript View Switcher and Cart Logic -->
+    <script>
+        let cart = [];
+
+        function switchView(viewName) {
+            const homeView = document.getElementById('view-home');
+            const productsView = document.getElementById('view-products');
+            
+            if (viewName === 'products') {
+                homeView.classList.add('hidden');
+                productsView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                productsView.classList.add('hidden');
+                homeView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price, image) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-xs text-frozen-700 text-center py-8">Your bag is currently empty! Add frozen treats from Elsa\'s Castle. ❄️🍫</p>';
+            } else {
+                cartItemsContainer.innerHTML = '';
+                cart.forEach((item, index) => {
+                    totalCount += item.quantity;
+                    totalPrice += item.price * item.quantity;
+                    cartItemsContainer.innerHTML += `
+                        <div class="flex items-center justify-between bg-frozen-50 p-3 rounded-2xl border border-frozen-200">
+                            <div class="flex items-center space-x-3">
+                                <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-xl object-cover">
+                                <div>
+                                    <h4 class="font-bold text-xs text-frozen-900">${item.name}</h4>
+                                    <p class="text-xs text-frozen-600 font-semibold">₹${item.price} x ${item.quantity}</p>
+                                </div>
+                            </div>
+                            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-xs px-2 py-1">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+
+            cartCount.textContent = totalCount;
+            cartTotal.textContent = `₹${totalPrice.toLocaleString()}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your bag is empty!');
+                return;
+            }
+            alert('Thank you for ordering from Queen Elsa\'s Ice Castle! 👑❄️ Your frozen treats are on their way.');
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        function filterProducts(category) {
+            const items = document.querySelectorAll('.product-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-frozen-500', 'text-white');
+                btn.classList.add('bg-white', 'text-frozen-700');
+            });
+            event.currentTarget.classList.remove('bg-white', 'text-frozen-700');
+            event.currentTarget.classList.add('bg-frozen-500', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
